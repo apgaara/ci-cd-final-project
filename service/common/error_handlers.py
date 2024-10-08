@@ -17,7 +17,7 @@
 """
 Module: error_handlers
 """
-from flask import jsonify
+from flask import jsonify, url_for
 from service import app
 from . import status
 
@@ -51,7 +51,6 @@ def not_found(error):
         ),
         status.HTTP_404_NOT_FOUND,
     )
-
 
 
 @app.errorhandler(status.HTTP_405_METHOD_NOT_ALLOWED)
