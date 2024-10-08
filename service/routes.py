@@ -92,3 +92,5 @@ def update_counters(name):
         return abort(status.HTTP_404_NOT_FOUND, f"Counter {name} does not exist")
 
     COUNTER
+    
+__all__ = ['reset_counters', 'app']
