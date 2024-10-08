@@ -115,9 +115,9 @@ def delete_counters(name):
 # Utility for testing
 def reset_counters():
     """Removes all counters while testing"""
-    global COUNTER  
+    global COUNTER
     if app.testing:
         COUNTER = {}
 
- 
+
 __all__ = ['reset_counters', 'app']
