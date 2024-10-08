@@ -42,7 +42,11 @@ def list_counters():
     """Lists all counters"""
     app.logger.info("Request to list all counters...")
 
-    counters = [dict(name=count[0], counter=count[1]) for count in COUNTER.items()]
+    counters = [
+        dict(name=count[0], counter=count[1]) 
+        for count in COUNTER.items()
+    ]
+
 
     return jsonify(counters)
 
@@ -56,7 +60,7 @@ def create_counters(name):
     app.logger.info("Request to Create counter: %s...", name)
 
     if name in COUNTER:
-        return abort(
+        return abort (
            status.HTTP_409_CONFLICT, f"Counter {name} already exists"
         )
 
@@ -71,9 +75,9 @@ def create_counters(name):
     )
 
 
-############################################################
+ 
 # Read counters
-############################################################
+ 
 @app.route("/counters/<name>", methods=["GET"])
 def read_counters(name):
     """Reads a single counter"""
@@ -86,9 +90,9 @@ def read_counters(name):
     return jsonify(name=name, counter=counter)
 
 
-############################################################
+ 
 # Update counters
-############################################################
+ 
 @app.route("/counters/<name>", methods=["PUT"])
 def update_counters(name):
     """Updates a counter"""
@@ -117,9 +121,9 @@ def delete_counters(name):
     return "", status.HTTP_204_NO_CONTENT
 
 
-############################################################
+ 
 # Utility for testing
-############################################################
+ 
 def reset_counters():
     """Removes all counters while testing"""
     global COUNTER  # pylint: disable=global-statement
