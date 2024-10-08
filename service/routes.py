@@ -59,7 +59,6 @@ def create_counters(name):
             f"Counter {name} already exists"
         )
 
-
     COUNTER[name] = 0
 
     location_url = url_for("read_counters", name=name, _external=True)
@@ -70,9 +69,6 @@ def create_counters(name):
     )
 
 
-############################################################
-# Read counters
-############################################################
 @app.route("/counters/<name>", methods=["GET"])
 def read_counters(name):
     """Reads a single counter"""
@@ -88,9 +84,6 @@ def read_counters(name):
     return jsonify(name=name, counter=counter)
 
 
-############################################################
-# Update counters
-############################################################
 @app.route("/counters/<name>", methods=["PUT"])
 def update_counters(name):
     """Updates a counter"""
@@ -109,9 +102,6 @@ def update_counters(name):
     return jsonify(name=name, counter=counter)
 
 
-############################################################
-# Delete counters
-############################################################
 @app.route("/counters/<name>", methods=["DELETE"])
 def delete_counters(name):
     """Deletes a counter"""
